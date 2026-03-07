@@ -1,0 +1,124 @@
+.review-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(74, 124, 126, 0.2);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #6ba8ab;
+}
+
+.rating-selector {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.rating-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid rgba(74, 124, 126, 0.4);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.rating-btn:hover {
+  background-color: rgba(74, 124, 126, 0.4);
+}
+
+.rating-btn.active {
+  background-color: #4a7c7e;
+  color: white;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(74, 124, 126, 0.3);
+  border-radius: 5px;
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.form-group textarea::placeholder {
+  color: #666;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4a7c7e;
+  box-shadow: 0 0 10px rgba(74, 124, 126, 0.3);
+}
+
+.char-count {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4a7c7e 0%, #3a5864 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: scale(1.02);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-prompt {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 5px;
+  border-left: 3px solid #4a7c7e;
+  text-align: center;
+  color: #999;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}

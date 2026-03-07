@@ -1,0 +1,22 @@
+{
+  "name": "kellyjavierfilms",
+  "version": "1.0.0",
+  "description": "Full-stack film platform with authentication",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm --prefix ./kellyjavierfilms/backend run dev",
+    "dev:frontend": "npm --prefix ./kellyjavierfilms/frontend start",
+    "backend": "npm --prefix ./kellyjavierfilms/backend run dev",
+    "frontend": "npm --prefix ./kellyjavierfilms/frontend start",
+    "test": "npm --prefix ./kellyjavierfilms/backend run test",
+    "test:integration": "npm --prefix ./kellyjavierfilms/backend run test:integration",
+    "test:coverage": "npm --prefix ./kellyjavierfilms/backend run test:coverage"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "keywords": ["film", "authentication", "react", "express", "mongodb"],
+  "author": "",
+  "license": "ISC"
+}
