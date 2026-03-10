@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 import './ContactPage.css';
 
@@ -83,10 +83,18 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-container">
-      <nav className="contact-navbar">
-        <div className="navbar-brand" onClick={() => navigate('/')}>KellyJavier Films</div>
-        <button className="back-btn" onClick={() => navigate('/')}>← Back Home</button>
-      </nav>
+      <header className="contact-header">
+        <div className="contact-header-content">
+          <h1 className="contact-title">Kelly Javier</h1>
+          <p className="contact-tagline">Cinematographer & Director</p>
+        </div>
+        <nav className="contact-nav">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/films" className="nav-link">Portfolio</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/contact" className="nav-link active">Contact</Link>
+        </nav>
+      </header>
 
       <div className="contact-content">
         <div className="contact-hero">

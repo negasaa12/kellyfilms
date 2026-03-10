@@ -30,24 +30,16 @@ function HomePage() {
           <p className="site-tagline">Cinematographer & Director</p>
         </div>
         <nav className="home-nav">
-          {isAuthenticated ? (
-            <>
-              <Link to="/films" className="nav-link">Portfolio</Link>
-              <Link to="/contact" className="nav-link">Contact</Link>
-              {user?.role === 'admin' && (
-                <button onClick={() => navigate('/admin')} className="nav-link admin-dashboard-link">
-                  ⚙️ Admin
-                </button>
-              )}
-              <Link to="/dashboard" className="nav-link">Dashboard</Link>
-            </>
-          ) : (
-            <>
-              <Link to="/films" className="nav-link">Portfolio</Link>
-              <Link to="/contact" className="nav-link">Contact</Link>
-              <Link to="/login" className="nav-link">Login</Link>
-              <Link to="/signup" className="nav-link signup-link">Access</Link>
-            </>
+          <Link to="/films" className="nav-link">Portfolio</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
+          {isAuthenticated && user?.role === 'admin' && (
+            <button onClick={() => navigate('/admin')} className="nav-link admin-dashboard-link">
+              ⚙️ Admin
+            </button>
+          )}
+          {!isAuthenticated && (
+            <Link to="/login" className="nav-link signup-link">Sign In</Link>
           )}
         </nav>
       </header>
@@ -58,15 +50,10 @@ function HomePage() {
             <h2>Visual Storytelling</h2>
             <p>Explore cinematic works—short films, visual essays, and aesthetic explorations</p>
             {!isAuthenticated && (
-              <div className="hero-buttons">
-                <Link to="/signup" className="btn btn-primary">View Portfolio</Link>
-                <Link to="/login" className="btn btn-secondary">Sign In</Link>
-              </div>
+              <Link to="/films" className="btn btn-primary">View Portfolio</Link>
             )}
             {isAuthenticated && (
-              <div className="hero-buttons">
-                <Link to="/films" className="btn btn-primary">My Works</Link>
-              </div>
+              <Link to="/films" className="btn btn-primary">My Works</Link>
             )}
           </div>
         </section>
@@ -81,10 +68,6 @@ function HomePage() {
             <div className="feature-card">
               <h4>Cinematography</h4>
               <p>Mood-driven compositions exploring light, shadow, and the beauty of stillness</p>
-            </div>
-            <div className="feature-card">
-              <h4>Community</h4>
-              <p>Connect with fellow creators and share insights on the craft of visual art</p>
             </div>
           </div>
         </section>

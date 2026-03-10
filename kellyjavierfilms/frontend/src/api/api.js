@@ -48,7 +48,8 @@ export const authAPI = {
     api.post(`/auth/reset-password/${resetToken}`, { password }),
   verifyEmail: (token) => api.get(`/auth/verify-email/${token}`),
   logout: () => api.post('/auth/logout'),
-  getMe: () => api.get('/auth/me')
+  getMe: () => api.get('/auth/me'),
+  updateProfile: (profileData) => api.put('/auth/update-profile', profileData)
 };
 
 export const filmAPI = {

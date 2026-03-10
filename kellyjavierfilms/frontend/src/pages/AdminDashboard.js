@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import ManageFilms from '../components/admin/ManageFilms';
-import ManageReviews from '../components/admin/ManageReviews';
 import ManageContacts from '../components/admin/ManageContacts';
+import ProfileTab from '../components/admin/ProfileTab';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -36,16 +36,16 @@ const AdminDashboard = () => {
             📊 Overview
           </button>
           <button
+            className={`nav-btn ${activeTab === 'profile' ? 'active' : ''}`}
+            onClick={() => setActiveTab('profile')}
+          >
+            👤 Profile
+          </button>
+          <button
             className={`nav-btn ${activeTab === 'films' ? 'active' : ''}`}
             onClick={() => setActiveTab('films')}
           >
             🎬 Manage Films
-          </button>
-          <button
-            className={`nav-btn ${activeTab === 'reviews' ? 'active' : ''}`}
-            onClick={() => setActiveTab('reviews')}
-          >
-            ⭐ Reviews
           </button>
           <button
             className={`nav-btn ${activeTab === 'contacts' ? 'active' : ''}`}
@@ -70,8 +70,8 @@ const AdminDashboard = () => {
 
         <div className="admin-body">
           {activeTab === 'overview' && <OverviewTab />}
+          {activeTab === 'profile' && <ProfileTab />}
           {activeTab === 'films' && <ManageFilms />}
-          {activeTab === 'reviews' && <ManageReviews />}
           {activeTab === 'contacts' && <ManageContacts />}
         </div>
       </main>
@@ -85,16 +85,16 @@ const OverviewTab = () => {
       <h2>Dashboard Overview</h2>
       <div className="overview-grid">
         <div className="overview-card">
+          <div className="card-icon">👤</div>
+          <h3>Profile</h3>
+          <p className="card-description">Your portfolio details</p>
+          <p className="card-action">Edit bio and contact info</p>
+        </div>
+        <div className="overview-card">
           <div className="card-icon">🎬</div>
           <h3>Films</h3>
           <p className="card-description">Manage your film portfolio</p>
           <p className="card-action">Add, edit, or remove films</p>
-        </div>
-        <div className="overview-card">
-          <div className="card-icon">⭐</div>
-          <h3>Reviews</h3>
-          <p className="card-description">View audience feedback</p>
-          <p className="card-action">Monitor ratings and comments</p>
         </div>
         <div className="overview-card">
           <div className="card-icon">💬</div>
@@ -102,19 +102,13 @@ const OverviewTab = () => {
           <p className="card-description">Client inquiries and bookings</p>
           <p className="card-action">Manage contact requests</p>
         </div>
-        <div className="overview-card">
-          <div className="card-icon">👤</div>
-          <h3>Profile</h3>
-          <p className="card-description">Your portfolio details</p>
-          <p className="card-action">Edit bio and contact info</p>
-        </div>
       </div>
 
       <div className="welcome-section">
         <h2>Welcome to Your Admin Dashboard</h2>
         <p>
           Use the sidebar menu to navigate through different admin functions. 
-          Manage your film portfolio, track audience reviews, and respond to client inquiries.
+          Manage your portfolio, edit your profile, and respond to client inquiries.
         </p>
       </div>
     </div>

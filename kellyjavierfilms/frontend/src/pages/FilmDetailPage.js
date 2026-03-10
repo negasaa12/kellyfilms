@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { filmAPI, reviewAPI } from '../api/api';
-import ReviewForm from '../components/ReviewForm';
+import { filmAPI } from '../api/api';
 import './FilmDetailPage.css';
 
 const FilmDetailPage = () => {
   const { filmId } = useParams();
   const [film, setFilm] = useState(null);
-  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     fetchFilmDetails();
-    fetchReviews();
   }, [filmId]);
 
   const fetchFilmDetails = async () => {
@@ -25,20 +22,6 @@ const FilmDetailPage = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const fetchReviews = async () => {
-    try {
-      const response = await reviewAPI.getFilmReviews(filmId);
-      setReviews(response.data.reviews || []);
-    } catch (error) {
-      console.error('Error loading reviews:', error);
-    }
-  };
-
-  const handleReviewSubmitted = () => {
-    fetchReviews();
-    fetchFilmDetails(); // Refresh film to get updated average rating
   };
 
   if (loading) return <div className="loading">Loading...</div>;
@@ -54,9 +37,6 @@ const FilmDetailPage = () => {
             <p className="film-meta">
               {film.releaseYear} • {film.director} • {film.duration} min
             </p>
-            <div className="film-rating-large">
-              ⭐ {film.averageRating.toFixed(1)}/10 • {reviews.length} reviews
-            </div>
             <button className="watch-button">Watch Now</button>
           </div>
         </div>
@@ -96,29 +76,6 @@ const FilmDetailPage = () => {
                 <span className="label">Views:</span>
                 <span>{film.views}</span>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="right-column">
-          <div className="reviews-section">
-            <h2>Reviews</h2>
-            <ReviewForm filmId={filmId} onReviewSubmitted={handleReviewSubmitted} />
-            
-            <div className="reviews-list">
-              {reviews.length > 0 ? (
-                reviews.map(review => (
-                  <div key={review._id} className="review-item">
-                    <div className="review-header">
-                      <div className="review-author">{review.user?.firstName} {review.user?.lastName}</div>
-                      <div className="review-rating">⭐ {review.rating}/10</div>
-                    </div>
-                    <p className="review-comment">{review.comment}</p>
-                  </div>
-                ))
-              ) : (
-                <p className="no-reviews">No reviews yet. Be the first to review!</p>
-              )}
             </div>
           </div>
         </div>

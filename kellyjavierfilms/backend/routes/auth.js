@@ -50,5 +50,6 @@ router.get('/verify-email/:token', authController.verifyEmail);
 // Protected routes
 router.post('/logout', protect, authController.logout);
 router.get('/me', protect, authController.getMe);
+router.put('/update-profile', protect, authController.updateProfile);
 
 module.exports = router;

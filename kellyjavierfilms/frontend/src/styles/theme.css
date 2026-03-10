@@ -1,0 +1,336 @@
+/* ============================================
+   Gen-X Soft Club Aesthetic - Design System
+   ============================================
+   
+   A moody, late-night cinema aesthetic inspired by 1990s lounge clubs.
+   Features soft neon glows, glassmorphism, minimal typography, and
+   dark charcoal backgrounds with teal & purple accents.
+*/
+
+:root {
+  /* ==================== BACKGROUNDS ==================== */
+  /* Deep charcoal foundation for the late-night mood */
+  --bg-primary: #0f0f14;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #2d2d44;
+  --bg-glass: rgba(26, 26, 46, 0.4);
+  
+  /* ==================== SOFT NEON ACCENTS ==================== */
+  /* Minimal, soft glows instead of harsh brights */
+  --accent-purple: #a78bfa;        /* Soft lavender */
+  --accent-purple-dark: #7c3aed;   /* Deep purple for depth */
+  --accent-purple-light: #c4b5fd;  /* Light purple for highlights */
+  --accent-teal: #5eead4;          /* Soft cyan/teal */
+  --accent-teal-dark: #14b8a6;     /* Deep teal */
+  --accent-teal-light: #7ee8d8;    /* Light teal highlights */
+  
+  /* ==================== TEXT COLORS ==================== */
+  /* Refined typography for minimal aesthetic */
+  --text-primary: #f5f5f7;         /* Almost white, slightly warm */
+  --text-secondary: #d1d5db;       /* Light gray for secondary text */
+  --text-tertiary: #9ca3af;        /* Muted gray for subtle text */
+  
+  /* ==================== GLOW EFFECTS ==================== */
+  /* Soft ambient lighting for cinematic feel */
+  --glow-purple: rgba(167, 139, 250, 0.3);
+  --glow-teal: rgba(94, 234, 212, 0.3);
+  --glow-subtle: rgba(167, 139, 250, 0.1);
+  
+  /* ==================== TRANSITIONS ==================== */
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-quick: all 0.2s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+/* ============================================
+   GLASSMORPHISM CARD SYSTEM
+   ============================================
+   
+   Frosted glass effect with subtle backdrop blur
+   and soft glow accents for depth
+*/
+
+.glass-card {
+  background: rgba(26, 26, 46, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.1), 
+              inset 0 0 20px rgba(167, 139, 250, 0.05);
+}
+
+.glass-card:hover {
+  box-shadow: 0 0 40px rgba(167, 139, 250, 0.1), 
+              inset 0 0 20px rgba(167, 139, 250, 0.08);
+  border-color: rgba(94, 234, 212, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.glass-card-dark {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+/* ============================================
+   GLOWING BUTTON SYSTEM
+   ============================================
+   
+   Buttons with soft neon glow effects that
+   brighten on interaction
+*/
+
+.btn-glow {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-teal));
+  color: white;
+  border: 1px solid var(--accent-purple-light);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 20px var(--glow-purple), 
+              inset 0 0 10px rgba(167, 139, 250, 0.2);
+  font-size: 12px;
+}
+
+.btn-glow:hover {
+  background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px var(--glow-teal), 
+              inset 0 0 15px rgba(94, 234, 212, 0.2);
+}
+
+.btn-glow:active {
+  transform: translateY(0);
+}
+
+.btn-outline-glow {
+  padding: 12px 32px;
+  background: transparent;
+  color: var(--accent-teal);
+  border: 1px solid var(--accent-teal);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 10px rgba(94, 234, 212, 0.2);
+  font-size: 12px;
+}
+
+.btn-outline-glow:hover {
+  background: rgba(94, 234, 212, 0.1);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 25px var(--glow-teal);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   FORM ELEMENTS WITH GLASSMORPHISM
+   ============================================
+*/
+
+.input-glass {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(26, 26, 46, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  transition: var(--transition-smooth);
+}
+
+.input-glass::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input-glass:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(26, 26, 46, 0.6);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+}
+
+/* ============================================
+   TYPOGRAPHY - MINIMAL & REFINED
+   ============================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+.heading-gradient {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.heading-primary {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+
+.heading-secondary {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.875rem;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+
+.text-accent {
+  color: var(--accent-teal);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(94, 234, 212, 0.2);
+}
+
+.text-accent-purple {
+  color: var(--accent-purple);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.2);
+}
+
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================
+*/
+
+.gradient-background {
+  background: linear-gradient(135deg, #0f0f14 0%, #1a1a2e 50%, #16213e 100%);
+  background-attachment: fixed;
+}
+
+.gradient-subtle {
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(167, 139, 250, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(94, 234, 212, 0.05) 0%, transparent 50%);
+}
+
+/* ============================================
+   ANIMATIONS - CINEMATIC FEEL
+   ============================================
+*/
+
+@keyframes glowPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px var(--glow-purple), 
+                inset 0 0 20px var(--glow-subtle); 
+  }
+  50% { 
+    box-shadow: 0 0 30px var(--glow-purple), 
+                inset 0 0 30px var(--glow-subtle); 
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================
+*/
+
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-down {
+  animation: slideDown 0.8s ease-out;
+}
+
+/* Responsive Design Support */
+@media (max-width: 768px) {
+  .heading-primary {
+    font-size: 1.875rem;
+  }
+  
+  .heading-secondary {
+    font-size: 1.5rem;
+  }
+  
+  .btn-glow,
+  .btn-outline-glow {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   COLOR PALETTE REFERENCE
+   ============================================
+   
+   Background Layers:
+   - Primary: #0f0f14 (deepest dark)
+   - Secondary: #1a1a2e (mid-dark)
+   - Tertiary: #2d2d44 (lighter dark)
+   - Glass: Semi-transparent secondary
+   
+   Accent Colors:
+   - Purple: #a78bfa (soft lavender)
+   - Teal: #5eead4 (soft cyan)
+   - These pair for gradients & combinations
+   
+   Typography:
+   - Primary: #f5f5f7 (near-white)
+   - Secondary: #d1d5db (light gray)
+   - Tertiary: #9ca3af (muted gray)
+   
+   All colors are purposefully soft & minimal
+   to create a subtle, sophisticated atmosphere
+   rather than bright, flashy design.
+*/
